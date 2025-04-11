@@ -11,7 +11,7 @@ Bot tự động bình luận trên Twitter sử dụng OpenAI để tạo nội
 ## Cài đặt
 1. Clone repository:
 ```bash
-git clone [repository-url]
+git clone https://github.com/hiephtdev/x-comment
 cd x-comment
 ```
 
