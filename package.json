@@ -1,0 +1,19 @@
+{
+  "name": "twitter-auto-comment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "agent-twitter-client": "^0.0.18",
+    "delay": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "openai": "^4.93.0",
+    "tough-cookie": "^5.1.2"
+  }
+}
