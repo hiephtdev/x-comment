@@ -214,7 +214,7 @@ async function main() {
             if (commentedSet.has(tweet.id)) continue;
 
             const aiComment = await generateStyledComment(quotedComments);
-            await scraper.sendLongTweet(aiComment, tweet.id);
+            await withRetry(() => scraper.sendLongTweet(aiComment, tweet.id));
             await delay(20000);
             saveCommentedTweet(tweet.id);
             commentedSet.add(tweet.id);
@@ -283,7 +283,7 @@ async function main() {
                 // const comment2 = await generateStyledComment(quotedComments);
 
                 // Use retry logic for sending tweets
-                await scraper.sendLongTweet(comment, `${latestTweet.id}`);
+                await withRetry(() => scraper.sendLongTweet(comment, `${latestTweet.id}`));
                 console.log(`✅ Replied to tweet ${latestTweet.id} with AI-style comment.`);
                 // await delay(2000);
                 // await withRetry(() => scraper.sendTweet(comment2, latestTweet.id));
