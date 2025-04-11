@@ -29,7 +29,7 @@ npm install
 1. Chạy bot:
 ```bash
 # Nếu dùng file thực thi
-./twitter-auto-comment
+./x-comment
 
 # Nếu build từ source
 node index.js
