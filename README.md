@@ -1,55 +1,69 @@
-# Twitter Auto Comment Bot
+# x-comment – Twitter Auto Comment Bot
 
-Bot tự động bình luận trên Twitter sử dụng OpenAI để tạo nội dung bình luận thông minh.
+A Twitter auto-comment bot using OpenAI or Grok to generate intelligent responses.
 
-## Yêu cầu
+## Requirements
 
-- Node.js (phiên bản 22 trở lên)
-- Tài khoản Twitter
-- API key từ OpenAI hoặc Grok
+- Node.js (version 22 or higher)
+- Twitter account
+- API key from OpenAI or Grok
 
-## Cài đặt
-1. Clone repository:
+## Installation
+
+1. Clone the repository:
+
 ```bash
 git clone https://github.com/hiephtdev/x-comment
 cd x-comment
 ```
 
-2. Cài đặt dependencies:
+2. Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Tạo file `.env` và cấu hình từ .env.sample
+3. Create a `.env` file based on `.env.sample` and fill in your values.
 
-4. Chạy file thực thi đã build
+4. Run the bot:
 
-## Cách sử dụng
-
-1. Chạy bot:
 ```bash
-# Nếu dùng file thực thi
+# If using the executable file
 ./x-comment
 
-# Nếu build từ source
+# If building from source
 node index.js
 ```
 
-2. Bot sẽ:
-- Đăng nhập vào Twitter
-- Theo dõi tài khoản được chỉ định
-- Tự động bình luận vào các tweet mới
-- Lưu lại các tweet đã bình luận để tránh bình luận trùng lặp
+## Usage
 
-## Lưu ý
-- Bot sử dụng cơ chế retry với exponential backoff để xử lý lỗi
-- Cookies được lưu lại để tránh phải đăng nhập lại nhiều lần
-- Các tweet đã bình luận được lưu trong file `commented_tweets.txt`
-- Mặc định bot sẽ bình luận vào các tweet của tài khoản `QuoteChain_AI`
-- Có thể thay đổi model AI bằng cách cấu hình `AI_MODEL` trong file `.env`
+- Logs into Twitter
+- Follows the specified account
+- Comments on new tweets using AI-generated content
+- Avoids commenting on the same tweet twice by logging commented tweet IDs
 
-## Bảo mật
+## Configuration
 
-- Không chia sẻ file `.env` và các thông tin xác thực
-- Không commit các file chứa thông tin nhạy cảm
-- Sử dụng 2FA cho tài khoản Twitter để tăng bảo mật 
+- `commented_tweets.txt` is used to store commented tweets
+- Bot will default to `QuoteChain_AI` for monitoring
+- Change the AI model via the `AI_MODEL` value in `.env`
+
+## Modifying the System Prompt
+
+To change the AI's commenting style, update the `SYSTEM_PROMP` constant in `index.js`. For example:
+
+```javascript
+const SYSTEM_PROMP = "Write a humorous and witty comment.";
+```
+
+You can modify it to match your desired tone, such as:
+
+- "Write a serious and professional comment."
+- "Write a friendly and approachable comment."
+- "Write a concise and succinct comment."
+- "Write a deep and philosophical comment."
+
+## Security
+
+- Never share your `.env` file or credentials
+- Use 2FA on Twitter for extra protection
